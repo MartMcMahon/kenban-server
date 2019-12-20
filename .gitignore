@@ -1,0 +1,10 @@
+# env things
+.env
+bin/
+lib/
+pyvenv.cfg
+
+# vim
+*.swp
+
+__pycache__/

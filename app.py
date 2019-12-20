@@ -8,7 +8,7 @@ CLIENT_ID = os.getenv("CLIENT_ID")
 CLIENT_SECRET = os.getenv("CLIENT_SECRET")
 REDIRECT_URI = os.getenv("REDIRECT_URI")
 
-app = Flask("test-app")
+app = Flask("kenban-app")
 code = ""
 
 
@@ -38,7 +38,7 @@ def hello():
 
         print(r.json())
         # return r.json()
-    # return code
+    return code
 
 
 @app.route("/auth")
@@ -57,12 +57,12 @@ def auth():
             "redirect_uri": REDIRECT_URI,
         }
 
-        requests.post(
+        r = requests.post(
             "https://accounts.spotify.com/api/token", headers=headers, data=data
         )
 
         # print(r.json())
-        # return r.json()
+        return r.json()
 
 
 if __name__ == "__main__":
